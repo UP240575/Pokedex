@@ -14,12 +14,15 @@ export default function Index() {
     });
 
     const data = await response.json();
-    console.log(response);
+    setResults(data.response);
+    console.log(data);
   };
 
   return (
     <View>
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      {results.map((pokemon) => (
+        <Text key={pokemon.name}>{pokemon.name}</Text>
+      ))}
     </View>
   );
 }
